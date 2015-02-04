@@ -19,18 +19,19 @@ public class Activity3 extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity3);
 
-        Intent i = this.getIntent();
-        input = i.getStringExtra("toAct3");
-        TextView tvInput = (TextView)findViewById(R.id.tvInput);
+        Intent i = this.getIntent(); // get current activity
+        input = i.getStringExtra("toAct3"); //Receive input(name should match 'toAct3')
+        TextView tvInput = (TextView)findViewById(R.id.tvInput); //send to text input
         tvInput.setText(input);
     }
 
     public void retClicked(View v) {
+
         Intent res = new Intent();
         EditText etRet = (EditText)findViewById(R.id.etRet);
-        res.putExtra("toAct1", etRet.getText().toString());
-        setResult(RESULT_OK, res);
-        finish();
+        res.putExtra("toAct1", etRet.getText().toString()); //Attach value, name toAct1
+        setResult(RESULT_OK, res); //Need to set Result is ok
+        finish(); //this.finish() = finish ()
     }
 
 

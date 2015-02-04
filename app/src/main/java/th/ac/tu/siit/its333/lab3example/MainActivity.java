@@ -19,27 +19,34 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void act2Clicked(View v) {
-        Intent i = new Intent(this, Activity2.class);
+        Intent i = new Intent(this, Activity2.class); //Intent > create new activity ,Activity2.class
         startActivity(i);
     }
 
     public void act3Clicked(View v) {
         Intent i = new Intent(this, Activity3.class);
+
+        //attach input
         EditText etInput = (EditText)findViewById(R.id.etInput);
-        i.putExtra("toAct3", etInput.getText().toString());
-        startActivityForResult(i, 88);
+        i.putExtra("toAct3", etInput.getText().toString()); //attach text that I type with name of 'toAct3'
+
+        startActivityForResult(i, 88); //Send result, 88 = int
     }
 
     @Override
+    //Come back from Activity3
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         TextView tvResult = (TextView)findViewById(R.id.tvResult);
 
-        if (requestCode == 88) {
-            if (resultCode == RESULT_OK) {
+        if (requestCode == 88)
+        {
+            if (resultCode == RESULT_OK) //We already set result OK
+            {
                 String result = data.getStringExtra("toAct1");
-                tvResult.setText(result);
+                tvResult.setText(result); //Set text to be display
             }
-            else if (resultCode == RESULT_CANCELED) {
+            else if (resultCode == RESULT_CANCELED) //Click back button (at the bottom), result is not ok
+            {
                 tvResult.setText("CANCELED");
             }
         }

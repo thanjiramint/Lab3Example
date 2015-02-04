@@ -16,7 +16,7 @@ public class Activity2 extends ActionBarActivity {
     }
 
     public void buttonClicked(View v) {
-        this.finish();
+        this.finish(); //finished activity, it will automatic go back.
     }
 
 
